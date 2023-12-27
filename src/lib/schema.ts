@@ -2,41 +2,41 @@ import { z } from "zod"
 
 export const schemaResponseDataJobs = z.array(
     z.union([
-      z.object({
-        id: z.number(),
-        created_at: z.string(),
-        updated_at: z.string(),
-        title: z.string(),
-        job_description: z.string(),
-        job_qualification: z.string(),
-        job_type: z.string(),
-        job_tenure: z.string(),
-        job_status: z.number(),
-        company_name: z.string(),
-        company_image_url: z.string(),
-        company_city: z.string(),
-        salary_min: z.number(),
-        salary_max: z.number()
-      }),
-      z.object({
-        id: z.number(),
-        created_at: z.string(),
-        updated_at: z.string(),
-        title: z.string(),
-        job_description: z.string(),
-        job_qualification: z.string(),
-        job_type: z.string(),
-        job_tenure: z.string(),
-        job_status: z.null(),
-        company_name: z.string(),
-        company_image_url: z.string(),
-        company_city: z.string(),
-        salary_min: z.number(),
-        salary_max: z.number()
-      })
+        z.object({
+            id: z.number(),
+            created_at: z.string(),
+            updated_at: z.string(),
+            title: z.string(),
+            job_description: z.string(),
+            job_qualification: z.string(),
+            job_type: z.string(),
+            job_tenure: z.string(),
+            job_status: z.number(),
+            company_name: z.string(),
+            company_image_url: z.string(),
+            company_city: z.string(),
+            salary_min: z.number(),
+            salary_max: z.number()
+        }),
+        z.object({
+            id: z.number(),
+            created_at: z.string(),
+            updated_at: z.string(),
+            title: z.string(),
+            job_description: z.string(),
+            job_qualification: z.string(),
+            job_type: z.string(),
+            job_tenure: z.string(),
+            job_status: z.null(),
+            company_name: z.string(),
+            company_image_url: z.string(),
+            company_city: z.string(),
+            salary_min: z.number(),
+            salary_max: z.number()
+        })
     ])
-  )
-  
+)
+
 
 export const schemaDataJobs = z.object({
     current_page: z.number(),
@@ -101,6 +101,17 @@ export const schemaDataLogin = z.object({
     }),
     token: z.string()
 })
+
+export const schemaProfileUser = z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string(),
+    image_url: z.string(),
+    email_verified_at: z.null(),
+    created_at: z.string(),
+    updated_at: z.string()
+})
+
 
 export const validationSchema = z
     .object({

@@ -1,16 +1,15 @@
 import Footer from "@/components/my_ui/footer";
+import NavigationBar from "@/components/my_ui/navigationBar";
 import React from "react";
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
-      <header>
-        <p>Hello</p>
-      </header>
-      <main>{children}</main>
+      <NavigationBar />
+      <main className="min-h-screen">{children}</main>
       <Footer />
     </>
   );
 };
 
-export default RootLayout
+export default RootLayout;

@@ -8,8 +8,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ToastAction } from "@/components/ui/toast";
 import { useRouter } from "next/router";
-import { z } from "zod";
-import { schemaDataLogin } from "@/lib/schema";
 
 const FormLogin = () => {
   const { toast } = useToast();
@@ -19,27 +17,29 @@ const FormLogin = () => {
     password: "",
   });
   const [show, setShow] = useState<boolean>(false);
-  
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.currentTarget.value;
     let name = event.currentTarget.name;
     setInputData({ ...inputData, [name]: value });
   };
 
-  type login = z.infer<typeof schemaDataLogin>;
-
-  const {
-    mutate: SubmitLogin,
-    isPending
-  } = useAuthLogin({
+  const { mutate: SubmitLogin, isPending } = useAuthLogin({
     onSuccess: (data: any) => {
       if (data !== undefined) {
         toast({
-          variant: "success",
+          variant: "default",
           title: "Login Success",
-        });        
+        });
+        const user = data?.data.user;
         Cookies.set("token", data?.data.token, { secure: true, expires: 1 });
-        Cookies.set("user", data?.data.user, { secure: true, expires: 1 });
+        Cookies.set("user", JSON.stringify(user), {
+          secure: true,
+          expires: 1,
+        });
+        inputData.email = "";
+        inputData.password = "";
+        router.push("/job-vacancy");
       } else {
         toast({
           variant: "destructive",
@@ -59,7 +59,7 @@ const FormLogin = () => {
   };
 
   return (
-    <section className="col-start-8 col-span-5 flex justify-center flex-col lg:px-20 xl:px-20 px-5 h-[90vh]">
+    <section className="lg:col-start-8 xl:col-start-8 col-start-1 lg:col-span-5 xl:col-span-5 col-span-6 flex justify-center flex-col lg:px-20 xl:px-20 px-5 lg:py-0 xl:py-0 py-10">
       <div className="flex flex-col justify-center w-full items-center mb-5">
         <Image
           src="./vercel.svg"

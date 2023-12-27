@@ -49,11 +49,10 @@ export default function DashboardTable() {
       <TableBody>
         {isLoading && <TableRowSkeleton />}
         {data?.data.map((value: ResponseJob, idx: number) => {
-          console.log(JSON.stringify(value));
           return (
             <TableRow key={value.id}>
               <TableCell className="font-medium">{idx + 1}</TableCell>
-              <TableCell className="font-medium flex gap-2 items-center">
+              <TableCell className="font-medium flex gap-2 items-center w-[200px] ">
                 <img
                   src={value.company_image_url}
                   alt={value.title}
@@ -71,9 +70,9 @@ export default function DashboardTable() {
                   <Badge variant="outline">tidak tersedia</Badge>
                 )}
               </TableCell>
-              <TableCell className="font-medium">
+              <TableCell className="font-medium flex gap-1">
                 <Button variant="outline" className="mr-2" asChild>
-                  <Link href={`/dashboard/${value.id}/edit`}>
+                  <Link href={`/dashboard/edit-job/${value.id}`}>
                     <PencilIcon className="w-4 h-4" />
                   </Link>
                 </Button>

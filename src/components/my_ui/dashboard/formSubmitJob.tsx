@@ -139,7 +139,7 @@ const FormSubmitJob = () => {
           {errors.job_tenure?.message}
         </div>
         <div className="w-full">
-          <label htmlFor="job_type">Job experience</label>
+          <label htmlFor="job_type">Job Type</label>
           <input
             {...register("job_type", { required: true })}
             type="text"
