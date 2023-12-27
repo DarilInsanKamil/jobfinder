@@ -48,6 +48,7 @@ const DropdowMenu = () => {
         <DropdownMenuItem>
           <Button
             variant="secondary"
+            size={"sm"}
             className="w-full hover:bg-red-500 transition-all hover:text-white"
             type="submit"
             onClick={() => SignOut()}
