@@ -1,13 +1,14 @@
 import DashboardTable from "@/components/my_ui/dashboard/dashboardTable";
+import SideNav from "@/components/my_ui/dashboard/sidenav";
 import { useFetchJobs } from "@/lib/features/useFetchJobs";
 import { z } from "zod";
+import DashboardLayout from "./layout";
 
 const Dashboard = () => {
   return (
-    <main className="md:p-10">
-      {/* {isLoading && <p>Loading...</p>} */}
-      <DashboardTable  />
-    </main>
+    <DashboardLayout>
+      <DashboardTable />
+    </DashboardLayout>
   );
 };
 

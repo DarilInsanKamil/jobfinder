@@ -2,6 +2,8 @@ import Card from "@/components/my_ui/job-vacancy/card";
 import SearchBar from "@/components/my_ui/searchBar";
 import { ResponseJob } from "@/lib/definitions";
 import { useFetchJobs } from "@/lib/features/useFetchJobs";
+import RootLayout from "../layout";
+import { ReactElement } from "react";
 
 const JobVacancy = () => {
   const { data, isLoading } = useFetchJobs();
@@ -18,6 +20,10 @@ const JobVacancy = () => {
       </section>
     </main>
   );
+};
+
+JobVacancy.getLayout = (page: ReactElement) => {
+  return <RootLayout>{page}</RootLayout>;
 };
 
 export default JobVacancy;

@@ -2,11 +2,20 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
-// import { Toaster } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster"
-import Layout from "./layout";
-export default function App({ Component, pageProps }: AppProps) {
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Toaster } from "@/components/ui/toaster";
+import type { ReactElement, ReactNode } from "react";
+import type { NextPage } from "next";
+
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -14,19 +23,19 @@ export default function App({ Component, pageProps }: AppProps) {
           queries: {
             // With SSR, we usually want to set some default staleTime
             // above 0 to avoid refetching immediately on the client
-            // staleTime: 60 * 1000,
-            refetchOnWindowFocus: false
+            staleTime: 60 * 1000,
+            refetchOnWindowFocus: false,
           },
         },
       })
   );
-  return (
+
+  const getLayout = Component.getLayout ?? ((page) => page);
+  return getLayout(
     <QueryClientProvider client={queryClient}>
-       <ReactQueryDevtools initialIsOpen={false} />
-      <Layout>
-        <Component {...pageProps} />
-        <Toaster />
-      </Layout>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <Component {...pageProps} />
+      <Toaster />
     </QueryClientProvider>
   );
 }
