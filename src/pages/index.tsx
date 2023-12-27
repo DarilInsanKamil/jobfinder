@@ -7,10 +7,11 @@ const inter = Inter({ subsets: ["latin"] });
 function Home() {
   const { data, isLoading, refetch: refetchJobs } = useFetchJobs();
   return (
-    <main className={`${inter.className}`}>
-      {isLoading && <p>Loading...</p>}
-      {JSON.stringify(data)}
-    </main>
+    <RootLayout>
+      <main className={`${inter.className} h-screen flex justify-center items-center`}>
+        <p>Hello there</p>
+      </main>
+    </RootLayout>
   );
 }
 
