@@ -25,12 +25,29 @@ const DropdowMenu = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar className="cursor-pointer w-[43px] h-[43px]">
-          <AvatarImage src={userProfile?.image_url} alt="img-profile" className="object-cover"/>
+          <AvatarImage
+            src={userProfile?.image_url}
+            alt="img-profile"
+            className="object-cover"
+          />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 mr-5">
         <DropdownMenuLabel>Hi, {userProfile?.name}</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem className="py-2">
+          {/* <UserRound className="w-4 h-4 mr-2" /> */}
+          <Link href={"/job-vacancy"}>Job Vacancy</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="py-2">
+          {/* <UserRound className="w-4 h-4 mr-2" /> */}
+          <Link href={"/"}>Home</Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="py-2">
+          {/* <UserRound className="w-4 h-4 mr-2" /> */}
+          <Link href={"/"}>About</Link>
+        </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="py-2">
           <LayoutDashboard className="w-4 h-4 mr-2" />

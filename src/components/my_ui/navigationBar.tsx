@@ -4,6 +4,8 @@ import Cookies from "js-cookie";
 import { useGetProfile } from "@/lib/features/useGetProfile";
 import DropdowMenu from "./profileDropdown";
 import Image from "next/image";
+import { SheetDemo } from "./sidebar";
+import { Suspense } from "react";
 
 const NavigationBar = () => {
   const { data: userProfile, isLoading, refetch } = useGetProfile();
