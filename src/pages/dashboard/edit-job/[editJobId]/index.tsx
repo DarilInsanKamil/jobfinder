@@ -18,7 +18,7 @@ const EditJobPage = () => {
         <title>Upload Job | JobFinders</title>
       </Head>
       <DashboardLayout>
-        <section className="text-center mb-10 font-semibold text-[20px]">
+        <section className="text-center mb-10 font-semibold text-[20px] transition-all">
           <h3>Edit Job</h3>
           <p>{id}</p>
         </section>

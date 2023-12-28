@@ -12,28 +12,24 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const JobVacancy = () => {
   const [queryPage, setQueryPage] = useState<number>(1);
-  const [isRefetching, setIsRefetching,] = useState<boolean>(false);
+  const [isRefetching, setIsRefetching] = useState<boolean>(false);
 
-  const {
-    data,
-    isLoading,
-    refetch: refetchPage,
-  } = useFetchJobs(queryPage);
+  const { data, isLoading, refetch: refetchPage } = useFetchJobs(queryPage);
 
   const handleNextPagination = async () => {
-    setIsRefetching(true)
+    setIsRefetching(true);
     if (queryPage <= data.last_page - 1) {
       await setQueryPage((prevState) => prevState + 1);
-      refetchPage().then(() => setIsRefetching(false))
+      refetchPage().then(() => setIsRefetching(false));
       ScrollTop();
     }
   };
 
   const handlePrevPagination = async () => {
-    setIsRefetching(true)
     if (queryPage > 1) {
+      setIsRefetching(true);
       await setQueryPage((prevState) => prevState - 1);
-      refetchPage().then(() => setIsRefetching(false))
+      refetchPage().then(() => setIsRefetching(false));
       ScrollTop();
     }
   };
@@ -53,16 +49,17 @@ const JobVacancy = () => {
         />
       </Head>
       <RootLayout>
-        <main className="grid xl:grid-cols-12 lg:grid-cols-12 grid-cols-6 lg:p-10 xl:p-10 p-5">
+        <main className="grid xl:grid-cols-12 lg:grid-cols-12 grid-cols-6 lg:p-10 xl:p-10 p-5 transition-all">
           <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 mb-5">
             <SearchBar />
           </section>
           <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-1 gap-5">
             {isLoading && <CardSkeleton />}
             {isRefetching && <CardSkeleton />}
-            {!isRefetching && data?.data.map((res: any, idx: number) => (
-              <Card {...res} key={idx} />
-            ))}
+            {!isRefetching &&
+              data?.data.map((res: any, idx: number) => (
+                <Card {...res} key={idx} />
+              ))}
           </section>
           <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 flex justify-center mt-10 gap-2">
             <Button

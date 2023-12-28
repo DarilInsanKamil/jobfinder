@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { DataRegister } from "@/lib/definitions";
 import { Eye, EyeOff, Loader2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useAuthRegister } from "@/lib/features/useAuthRegister";
 import { useToast } from "@/components/ui/use-toast";
+import { useRouter } from "next/router";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const FormRegister = () => {
   const { toast } = useToast();
@@ -16,7 +18,7 @@ const FormRegister = () => {
   });
 
   const [show, setShow] = useState<boolean>(false);
-
+  const router = useRouter();
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     let value = event.currentTarget.value;
     let name = event.currentTarget.name;
@@ -33,9 +35,12 @@ const FormRegister = () => {
         toast({
           title: "Register Success",
         });
+        inputData.email = "";
+        inputData.password = "";
+        router.push("/job-vacancy");
       } else {
         toast({
-          variant: 'destructive',
+          variant: "destructive",
           title: "Login Erorr",
           description: "invalid email or password",
         });
@@ -51,7 +56,7 @@ const FormRegister = () => {
   };
 
   return (
-    <section className="col-start-8 col-span-5 flex justify-center flex-col px-20">
+    <section className="lg:col-start-8 xl:col-start-8 col-start-1 lg:col-span-5 xl:col-span-5 col-span-6 flex justify-center flex-col lg:px-20 xl:px-20 px-5 lg:py-0 xl:py-0 py-10 h-screen">
       <div className="flex flex-col justify-center w-full items-center mb-5">
         <Image
           src="./vercel.svg"
@@ -63,6 +68,7 @@ const FormRegister = () => {
         <h2 className="text-xl font-semibold">Hi there!!</h2>
         <p className="text-neutral-400">Register for make your account</p>
       </div>
+
       <form onSubmit={handleLoginSubmit} className="flex flex-col gap-3 ">
         <div>
           <label htmlFor="name" className="block mb-1">
@@ -77,6 +83,29 @@ const FormRegister = () => {
             required
           />
         </div>
+        <div className="flex gap-5 items-center">
+          <Avatar className="w-[60px] h-[60px] transition-all">
+            <AvatarImage
+              src={inputData.image_url || "/vercel.svg"}
+              draggable="false"
+              className="object-cover"
+            />
+            <AvatarFallback>CN</AvatarFallback>
+          </Avatar>
+          <div className="w-full">
+            <label htmlFor="image-url" className="block mb-1">
+              Image Url
+            </label>
+            <input
+              type="url"
+              name="image_url"
+              className="border border-neutral-200 text-neutral-600 py-2 px-2 rounded-md w-full outline-blue-200"
+              value={inputData.image_url}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        </div>
         <div>
           <label htmlFor="email" className="block mb-1">
             Email
@@ -90,19 +119,7 @@ const FormRegister = () => {
             required
           />
         </div>
-        <div>
-          <label htmlFor="image-url" className="block mb-1">
-            Image Url
-          </label>
-          <input
-            type="url"
-            name="image_url"
-            className="border border-neutral-200 text-neutral-600 py-2 px-2 rounded-md w-full outline-blue-200"
-            value={inputData.image_url}
-            onChange={handleChange}
-            required
-          />
-        </div>
+
         <div>
           <label htmlFor="password" className="block mb-1">
             Password

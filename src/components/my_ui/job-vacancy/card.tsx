@@ -52,7 +52,7 @@ const Card = ({
           </Badge>
           <Badge variant="secondary">{job_tenure}</Badge>
         </div>
-        <Button variant="outline" asChild>
+        <Button variant="outline" size="sm" className="font-normal text-xs" asChild>
           <Link href={`/detail/${id}`}>See Detail</Link>
         </Button>
       </div>
