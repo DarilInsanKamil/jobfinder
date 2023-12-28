@@ -28,11 +28,11 @@ const DropdowMenu = () => {
   const pathname = usePathname();
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild type="button" aria-label="dropdown-button">
         <Avatar className="cursor-pointer w-[43px] h-[43px] hover:ring-offset-2 hover:ring-2 ring-blue-200">
           <AvatarImage
             src={userProfile?.image_url}
-            alt="img-profile"
+            alt="dropdown-button"
             className="object-cover "
           />
           <AvatarFallback>CN</AvatarFallback>

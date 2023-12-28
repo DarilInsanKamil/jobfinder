@@ -26,12 +26,13 @@ const Card = ({
             alt={title}
             width={60}
             height={60}
+            className="object-cover"
           />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <div>
           <h4 className="font-semibold">{title}</h4>
-          <p className="text-xs text-neutral-400">{company_name}</p>
+          <p className="text-sm text-neutral-500">{company_name}</p>
         </div>
       </div>
       <div className="flex gap-2 items-center text-neutral-500 text-sm mt-3">
