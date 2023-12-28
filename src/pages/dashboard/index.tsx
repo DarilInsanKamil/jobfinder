@@ -31,7 +31,7 @@ const Dashboard = () => {
             />
             <Search className="w-4 h-4 absolute end-0 right-4 top-3 text-neutral-400" />
           </div>
-          <Button asChild className="bg-blue-500 hover:bg-blue-600">
+          <Button asChild className="bg-blue-600 hover:bg-blue-700">
             <Link href="/dashboard/create-job">
               <Plus className="w-4 h-4 xl:mr-2 lg:mr-2 m-0  " />
               <p className="xl:block lg:block md:block hidden">Upload Job</p>

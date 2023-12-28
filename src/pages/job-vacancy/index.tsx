@@ -26,8 +26,8 @@ const JobVacancy = () => {
   };
 
   const handlePrevPagination = async () => {
+    setIsRefetching(true);
     if (queryPage > 1) {
-      setIsRefetching(true);
       await setQueryPage((prevState) => prevState - 1);
       refetchPage().then(() => setIsRefetching(false));
       ScrollTop();
@@ -63,6 +63,7 @@ const JobVacancy = () => {
           </section>
           <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 flex justify-center mt-10 gap-2">
             <Button
+              disabled={queryPage === 1 ? true : false}
               variant="outline"
               type="button"
               onClick={handlePrevPagination}
@@ -72,6 +73,7 @@ const JobVacancy = () => {
             </Button>
             <p className="bg-neutral-100 px-4 py-2 rounded-md">{queryPage}</p>
             <Button
+              disabled={data?.last_page > queryPage ? false : true}
               variant="outline"
               type="button"
               onClick={handleNextPagination}

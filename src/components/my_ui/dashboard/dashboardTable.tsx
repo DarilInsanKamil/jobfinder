@@ -47,6 +47,7 @@ export default function DashboardTable() {
   };
 
   const handlePrevPagination = async () => {
+    setIsRefetching(true);
     if (queryPage > 1) {
       setIsRefetching(true);
       await setQueryPage((prevState) => prevState - 1);
@@ -112,12 +113,22 @@ export default function DashboardTable() {
         </TableBody>
       </Table>
       <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 flex justify-center mt-10 gap-2">
-        <Button variant="outline" type="button" onClick={handlePrevPagination}>
+        <Button
+          disabled={queryPage === 1 ? true : false}
+          variant="outline"
+          type="button"
+          onClick={handlePrevPagination}
+        >
           <ChevronLeft className="w-4 h-4 mr-2" />
           Prev
         </Button>
         <p className="bg-neutral-100 px-4 py-2 rounded-md">{queryPage}</p>
-        <Button variant="outline" type="button" onClick={handleNextPagination}>
+        <Button
+          disabled={data?.last_page > queryPage ? false : true}
+          variant="outline"
+          type="button"
+          onClick={handleNextPagination}
+        >
           Next
           <ChevronRight className="w-4 h-4 ml-2" />
         </Button>
