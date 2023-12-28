@@ -3,10 +3,9 @@ import SearchBar from "@/components/my_ui/searchBar";
 import { ResponseJob } from "@/lib/definitions";
 import { useFetchJobs } from "@/lib/features/useFetchJobs";
 import RootLayout from "../layout";
-import { ReactElement, useState } from "react";
+import {useState } from "react";
 import Head from "next/head";
 import CardSkeleton from "@/components/my_ui/skeleton/cardSkeleteon";
-import PaginationDemo from "@/components/my_ui/pagination";
 import { Button } from "@/components/ui/button";
 import { ScrollTop } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -57,8 +56,6 @@ const JobVacancy = () => {
             ))}
           </section>
           <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 flex justify-center mt-10 gap-2">
-            {/* <PaginationDemo paginationClick={handlePagination} /> */}
-
             <Button
               variant="outline"
               type="button"
