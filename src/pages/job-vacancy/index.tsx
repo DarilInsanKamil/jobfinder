@@ -3,7 +3,7 @@ import SearchBar from "@/components/my_ui/searchBar";
 import { ResponseJob } from "@/lib/definitions";
 import { useFetchJobs } from "@/lib/features/useFetchJobs";
 import RootLayout from "../layout";
-import {useState } from "react";
+import { useState } from "react";
 import Head from "next/head";
 import CardSkeleton from "@/components/my_ui/skeleton/cardSkeleteon";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const JobVacancy = () => {
   const [queryPage, setQueryPage] = useState<number>(1);
-  const { data, isLoading, refetch: refetchPage } = useFetchJobs(queryPage);
+  const {
+    data,
+    isLoading,
+    refetch: refetchPage,
+    isRefetching,
+  } = useFetchJobs(queryPage);
 
   const handleNextPagination = async () => {
     if (queryPage <= data.last_page - 1) {
@@ -51,6 +56,7 @@ const JobVacancy = () => {
           </section>
           <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-1 gap-5">
             {isLoading && <CardSkeleton />}
+            {isRefetching && <CardSkeleton />}
             {data?.data.map((res: any, idx: number) => (
               <Card {...res} key={idx} />
             ))}
