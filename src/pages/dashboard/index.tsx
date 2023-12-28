@@ -1,10 +1,6 @@
 import DashboardTable from "@/components/my_ui/dashboard/dashboardTable";
-import SideNav from "@/components/my_ui/dashboard/sidenav";
-import { useFetchJobs } from "@/lib/features/useFetchJobs";
-import { z } from "zod";
 import DashboardLayout from "./layout";
 import Head from "next/head";
-import { PaginationDemo } from "@/components/my_ui/pagination";
 
 const Dashboard = () => {
   return (
