@@ -5,13 +5,17 @@ import { useFetchJobs } from "@/lib/features/useFetchJobs";
 import RootLayout from "../layout";
 import { ReactElement } from "react";
 import Head from "next/head";
+import CardSkeleton from "@/components/my_ui/skeleton/cardSkeleteon";
 
 const JobVacancy = () => {
   const { data, isLoading } = useFetchJobs();
   return (
     <>
       <Head>
-        <meta name="description" content="Explore exciting career opportunities at JobFinders. Browse our latest job vacancies across various departments and apply to join a dynamic team dedicated to innovation and growth. Find your next career move with us today!" />
+        <meta
+          name="description"
+          content="Explore exciting career opportunities at JobFinders. Browse our latest job vacancies across various departments and apply to join a dynamic team dedicated to innovation and growth. Find your next career move with us today!"
+        />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <title>Job Vacancy | JobFinders</title>
         <meta name="robots" content="all" />
@@ -22,8 +26,8 @@ const JobVacancy = () => {
             <SearchBar />
           </section>
           <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-1 gap-5">
-            {isLoading && <p>Loading...</p>}
-            {data?.data.map((res: any, idx:number) => (
+            {isLoading && <CardSkeleton />}
+            {data?.data.map((res: any, idx: number) => (
               <Card {...res} key={idx} />
             ))}
           </section>
