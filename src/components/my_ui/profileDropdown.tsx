@@ -9,9 +9,12 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import Link from "next/link";
-import { Files, LayoutDashboard, LogOut, UserRound } from "lucide-react";
+import { LogOut } from "lucide-react";
+import { DropdownNavigation, NavigationContent } from "@/lib/placehodler";
 import { useSignOut } from "@/lib/features/useLogout";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 const DropdowMenu = () => {
   const { data: userProfile, isLoading, refetch } = useGetProfile();
@@ -21,56 +24,65 @@ const DropdowMenu = () => {
       refetch();
     },
   });
+
+  const pathname = usePathname();
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Avatar className="cursor-pointer w-[43px] h-[43px]">
+        <Avatar className="cursor-pointer w-[43px] h-[43px] hover:ring-offset-2 hover:ring-2 ring-blue-200">
           <AvatarImage
             src={userProfile?.image_url}
             alt="img-profile"
-            className="object-cover"
+            className="object-cover "
           />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 mr-5">
+      <DropdownMenuContent className="w-56 mr-5 text-neutral-600">
         <DropdownMenuLabel>Hi, {userProfile?.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="py-2">
-          {/* <UserRound className="w-4 h-4 mr-2" /> */}
-          <Link href={"/job-vacancy"}>Job Vacancy</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem className="py-2">
-          {/* <UserRound className="w-4 h-4 mr-2" /> */}
-          <Link href={"/"}>Home</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem className="py-2">
-          {/* <UserRound className="w-4 h-4 mr-2" /> */}
-          <Link href={"/"}>About</Link>
-        </DropdownMenuItem>
+
+        <div className="xl:hidden lg:hidden block">
+          {NavigationContent.map((link) => {
+            const LinkIcon = link.icon;
+            return (
+              <DropdownMenuItem
+                className={clsx("py-2", {
+                  "border-l-4 border-blue-400 ": pathname === link.link,
+                })}
+                key={link.id}
+              >
+                <Link href={link.link} className="w-full">
+                  {link.name}
+                </Link>
+                <LinkIcon className="w-4 h-4" />
+              </DropdownMenuItem>
+            );
+          })}
+        </div>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="py-2">
-          <LayoutDashboard className="w-4 h-4 mr-2" />
-          <Link href={"/dashboard"}>Dashboard</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem className="py-2">
-          <Files className="w-4 h-4 mr-2" />
-          <Link href={"/dashboard/create-job"}>Upload Job</Link>
-        </DropdownMenuItem>
-        <DropdownMenuItem className="py-2">
-          <UserRound className="w-4 h-4 mr-2" />
-          <Link href={"/dashboard/profile"}>Profile</Link>
-        </DropdownMenuItem>
+        {DropdownNavigation.map((link) => {
+          const LinkIcons = link.icon;
+          return (
+            <DropdownMenuItem className="py-2" key={link.id}>
+              <LinkIcons className="w-4 h-4 mr-2" />
+              <Link href={link.link} className="w-full">
+                {link.name}
+              </Link>
+            </DropdownMenuItem>
+          );
+        })}
         <DropdownMenuSeparator />
+
         <DropdownMenuItem>
           <Button
             variant="secondary"
             size={"sm"}
-            className="w-full hover:bg-red-500 transition-all hover:text-white"
+            className="w-full hover:bg-red-500 transition-all hover:text-white text-neutral-600 font-normal"
             type="submit"
             onClick={() => SignOut()}
           >
-            <LogOut className="w-4h-4 mr-2" />
+            <LogOut className="w-4 h-4 mr-2" />
             Logout
           </Button>
         </DropdownMenuItem>
