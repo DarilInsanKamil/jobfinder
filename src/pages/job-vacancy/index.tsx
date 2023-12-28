@@ -9,6 +9,7 @@ import CardSkeleton from "@/components/my_ui/skeleton/cardSkeleteon";
 import PaginationDemo from "@/components/my_ui/pagination";
 import { Button } from "@/components/ui/button";
 import { ScrollTop } from "@/lib/utils";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const JobVacancy = () => {
   const [queryPage, setQueryPage] = useState<number>(1);
@@ -63,6 +64,7 @@ const JobVacancy = () => {
               type="button"
               onClick={handlePrevPagination}
             >
+              <ChevronLeft className="w-4 h-4 mr-2" />
               Prev
             </Button>
             <p className="bg-neutral-100 px-4 py-2 rounded-md">{queryPage}</p>
@@ -72,6 +74,7 @@ const JobVacancy = () => {
               onClick={handleNextPagination}
             >
               Next
+              <ChevronRight className="w-4 h-4 ml-2" />
             </Button>
           </section>
         </main>
