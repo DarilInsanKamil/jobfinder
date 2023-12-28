@@ -12,25 +12,28 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const JobVacancy = () => {
   const [queryPage, setQueryPage] = useState<number>(1);
+  const [isRefetching, setIsRefetching,] = useState<boolean>(false);
+
   const {
     data,
     isLoading,
     refetch: refetchPage,
-    isRefetching,
   } = useFetchJobs(queryPage);
 
   const handleNextPagination = async () => {
+    setIsRefetching(true)
     if (queryPage <= data.last_page - 1) {
       await setQueryPage((prevState) => prevState + 1);
-      refetchPage();
+      refetchPage().then(() => setIsRefetching(false))
       ScrollTop();
     }
   };
 
   const handlePrevPagination = async () => {
+    setIsRefetching(true)
     if (queryPage > 1) {
       await setQueryPage((prevState) => prevState - 1);
-      refetchPage();
+      refetchPage().then(() => setIsRefetching(false))
       ScrollTop();
     }
   };
@@ -57,7 +60,7 @@ const JobVacancy = () => {
           <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-1 gap-5">
             {isLoading && <CardSkeleton />}
             {isRefetching && <CardSkeleton />}
-            {data?.data.map((res: any, idx: number) => (
+            {!isRefetching && data?.data.map((res: any, idx: number) => (
               <Card {...res} key={idx} />
             ))}
           </section>

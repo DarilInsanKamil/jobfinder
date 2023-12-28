@@ -25,7 +25,7 @@ export function formatCurrencyIDR(amount: number): string {
 
 export const ScrollTop = () => {
   scrollTo({
-    behavior: "smooth",
+    // behavior: "smooth",
     top: 0,
   });
 };
