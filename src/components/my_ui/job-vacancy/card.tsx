@@ -1,6 +1,8 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CardData } from "@/lib/definitions";
+import { formatCurrencyIDR } from "@/lib/utils";
 import { CircleDollarSign, MapPin } from "lucide-react";
 import Link from "next/link";
 
@@ -18,7 +20,15 @@ const Card = ({
   return (
     <div className="border border-neutral-300 rounded-md p-3 hover:bg-neutral-50 transition-all">
       <div className="flex gap-2 items-center">
-        <img src={company_image_url} alt={title} width={60} height={60} />
+        <Avatar>
+          <AvatarImage
+            src={company_image_url}
+            alt={title}
+            width={60}
+            height={60}
+          />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
         <div>
           <h4 className="font-semibold">{title}</h4>
           <p className="text-xs text-neutral-400">{company_name}</p>
@@ -31,7 +41,7 @@ const Card = ({
       <div className="flex gap-2 items-center text-neutral-500 text-sm mt-1">
         <CircleDollarSign className="w-4 h-4" />
         <p>
-          {salary_min} - {salary_max}
+          {formatCurrencyIDR(salary_min)} - {formatCurrencyIDR(salary_max)}
         </p>
       </div>
       <div className="flex justify-between mt-3 items-center">

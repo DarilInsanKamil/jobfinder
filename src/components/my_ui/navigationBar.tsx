@@ -15,7 +15,9 @@ const NavigationBar = () => {
   const pathname = usePathname();
   return (
     <header className="flex justify-between items-center lg:px-10 xl:px-10 px-3 py-2 sticky top-0 bg-white z-50 shadow-sm">
-      <Image src={"./vercel.svg"} alt="img" width={80} height={80} />
+      <Link href={"/"}>
+        <Image src={"./vercel.svg"} alt="img" width={80} height={80} />
+      </Link>
       <nav className="lg:inline xl:inline hidden">
         <ul className="flex gap-10 items-center">
           {NavigationContent.map((link) => (
