@@ -32,7 +32,7 @@ const DropdowMenu = () => {
         <Avatar className="cursor-pointer w-[43px] h-[43px] hover:ring-offset-2 hover:ring-2 ring-blue-200">
           <AvatarImage
             src={userProfile?.image_url}
-            alt="dropdown-button"
+            alt="Avatar Image"
             className="object-cover "
           />
           <AvatarFallback>CN</AvatarFallback>

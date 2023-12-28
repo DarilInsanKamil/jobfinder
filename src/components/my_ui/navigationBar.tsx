@@ -32,15 +32,6 @@ const NavigationBar = () => {
               </Link>
             </li>
           ))}
-          {/* <li className="cursor-pointer">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="cursor-pointer">
-            <Link href="/job-vacancy">Job Vacancy</Link>
-          </li>
-          <li className="cursor-pointer">
-            <Link href="/about">About</Link>
-          </li> */}
         </ul>
       </nav>
       {userProfile ? (

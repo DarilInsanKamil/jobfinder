@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-gray-900  w-full -bottom-0 shrink-0">
+    <footer className="bg-white w-full -bottom-0 shrink-0">
       <div className="items-start justify-around p-10 w-full xl:flex lg:flex  hidden">
         <div>
           <Image src={"./vercel.svg"} width={200} height={200} alt="img" />
@@ -59,36 +59,36 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="px-4 py-6 bg-gray-100 dark:bg-gray-700 md:flex md:items-center md:justify-between">
-        <span className="text-sm text-gray-500 dark:text-gray-300 sm:text-center">
+      <div className="px-4 py-6 bg-neutral-900 md:flex md:items-center md:justify-between">
+        <span className="text-sm text-neutral-200 dark:text-gray-300 sm:text-center">
           © 2023 <a href="https://flowbite.com/">JobFinder</a>. All Rights
           Reserved.
         </span>
         <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
           <a
             href="#"
-            className="text-gray-400 hover:text-blue-400 dark:hover:text-white"
+            className="text-neutral-200 hover:text-blue-400 dark:hover:text-white"
           >
             <Facebook className="w-6 h-6" />
             <span className="sr-only">Facebook page</span>
           </a>
           <a
             href="#"
-            className="text-gray-400 hover:text-blue-400 dark:hover:text-white"
+            className="text-neutral-200 hover:text-blue-400 dark:hover:text-white"
           >
             <Twitter className="w-6 h-6" />
             <span className="sr-only">Twitter page</span>
           </a>
           <a
             href="#"
-            className="text-gray-400 hover:text-blue-400 dark:hover:text-white"
+            className="text-neutral-200 hover:text-blue-400 dark:hover:text-white"
           >
             <Github className="w-6 h-6" />
             <span className="sr-only">GitHub account</span>
           </a>
           <a
             href="#"
-            className="text-gray-400 hover:text-blue-400 dark:hover:text-white"
+            className="text-neutral-200 hover:text-blue-400 dark:hover:text-white"
           >
             <Dribbble className="w-6 h-6" />
             <span className="sr-only">Dribbble account</span>
