@@ -3,12 +3,23 @@ import SideNav from "@/components/my_ui/dashboard/sidenav";
 import { useFetchJobs } from "@/lib/features/useFetchJobs";
 import { z } from "zod";
 import DashboardLayout from "./layout";
+import Head from "next/head";
 
 const Dashboard = () => {
   return (
-    <DashboardLayout>
-      <DashboardTable />
-    </DashboardLayout>
+    <>
+      <Head>
+        <meta
+          name="description"
+          content="Efficiently manage job data on our customizable dashboard. Edit, delete, and streamline job listings effortlessly. Take control of your hiring process with our user-friendly interface designed to simplify data management for a seamless recruitment experience."
+        />
+        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
+        <title>Dashboard | JobFinders</title>
+      </Head>
+      <DashboardLayout>
+        <DashboardTable />
+      </DashboardLayout>
+    </>
   );
 };
 

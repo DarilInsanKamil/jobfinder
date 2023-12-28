@@ -7,9 +7,9 @@ export const useFetchJobs = () => {
     queryFn: async () => {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/job-vacancy`);
       const data = await response.json();
-      const parsedData = schemaDataJobs.parse(data)
-      // return data
-      return parsedData
+      // const parsedData = schemaDataJobs.parse(data)
+      return data
+      // return parsedData
     },
   });
 };

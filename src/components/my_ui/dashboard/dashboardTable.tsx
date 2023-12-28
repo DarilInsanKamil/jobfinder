@@ -48,7 +48,7 @@ export default function DashboardTable() {
       </TableHeader>
       <TableBody>
         {isLoading && <TableRowSkeleton />}
-        {data?.data.map((value: ResponseJob, idx: number) => {
+        {data?.data.map((value: any, idx: number) => {
           return (
             <TableRow key={value.id}>
               <TableCell className="font-medium">{idx + 1}</TableCell>

@@ -22,7 +22,7 @@ const JobVacancy = () => {
           </section>
           <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 grid xl:grid-cols-4 lg:grid-cols-3 grid-cols-1 gap-5">
             {isLoading && <p>Loading...</p>}
-            {data?.data.map((res: ResponseJob, idx:number) => (
+            {data?.data.map((res: any, idx:number) => (
               <Card {...res} key={idx} />
             ))}
           </section>
