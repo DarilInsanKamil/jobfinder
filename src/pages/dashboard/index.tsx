@@ -4,6 +4,7 @@ import { useFetchJobs } from "@/lib/features/useFetchJobs";
 import { z } from "zod";
 import DashboardLayout from "./layout";
 import Head from "next/head";
+import { PaginationDemo } from "@/components/my_ui/pagination";
 
 const Dashboard = () => {
   return (
@@ -15,7 +16,10 @@ const Dashboard = () => {
         />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <title>Dashboard | JobFinders</title>
-        <meta name="google-site-verification" content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ" />
+        <meta
+          name="google-site-verification"
+          content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ"
+        />
       </Head>
       <DashboardLayout>
         <DashboardTable />

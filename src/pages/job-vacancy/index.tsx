@@ -3,12 +3,32 @@ import SearchBar from "@/components/my_ui/searchBar";
 import { ResponseJob } from "@/lib/definitions";
 import { useFetchJobs } from "@/lib/features/useFetchJobs";
 import RootLayout from "../layout";
-import { ReactElement } from "react";
+import { ReactElement, useState } from "react";
 import Head from "next/head";
 import CardSkeleton from "@/components/my_ui/skeleton/cardSkeleteon";
+import PaginationDemo from "@/components/my_ui/pagination";
+import { Button } from "@/components/ui/button";
+import { ScrollTop } from "@/lib/utils";
 
 const JobVacancy = () => {
-  const { data, isLoading } = useFetchJobs();
+  const [queryPage, setQueryPage] = useState<number>(1);
+  const { data, isLoading, refetch: refetchPage } = useFetchJobs(queryPage);
+
+  const handleNextPagination = async () => {
+    if (queryPage <= data.last_page - 1) {
+      await setQueryPage((prevState) => prevState + 1);
+      refetchPage();
+      ScrollTop();
+    }
+  };
+
+  const handlePrevPagination = async () => {
+    if (queryPage > 1) {
+      await setQueryPage((prevState) => prevState - 1);
+      refetchPage();
+      ScrollTop();
+    }
+  };
   return (
     <>
       <Head>
@@ -19,7 +39,10 @@ const JobVacancy = () => {
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <title>Job Vacancy | JobFinders</title>
         <meta name="robots" content="all" />
-        <meta name="google-site-verification" content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ" />
+        <meta
+          name="google-site-verification"
+          content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ"
+        />
       </Head>
       <RootLayout>
         <main className="grid xl:grid-cols-12 lg:grid-cols-12 grid-cols-6 lg:p-10 xl:p-10 p-5">
@@ -31,6 +54,25 @@ const JobVacancy = () => {
             {data?.data.map((res: any, idx: number) => (
               <Card {...res} key={idx} />
             ))}
+          </section>
+          <section className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-6 flex justify-center mt-10 gap-2">
+            {/* <PaginationDemo paginationClick={handlePagination} /> */}
+
+            <Button
+              variant="outline"
+              type="button"
+              onClick={handlePrevPagination}
+            >
+              Prev
+            </Button>
+            <p className="bg-neutral-100 px-4 py-2 rounded-md">{queryPage}</p>
+            <Button
+              variant="outline"
+              type="button"
+              onClick={handleNextPagination}
+            >
+              Next
+            </Button>
           </section>
         </main>
       </RootLayout>

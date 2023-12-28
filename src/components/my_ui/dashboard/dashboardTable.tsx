@@ -24,7 +24,7 @@ type SchemaResponseDataJobs = z.infer<typeof schemaResponseDataJobs>;
 
 export default function DashboardTable() {
   const { toast } = useToast();
-  const { data, isLoading, refetch: refetchJob } = useFetchJobs();
+  const { data, isLoading, refetch: refetchJob } = useFetchJobs(1);
 
   const { mutate: deleteJobs } = useDeleteJob({
     onSuccess: () => {

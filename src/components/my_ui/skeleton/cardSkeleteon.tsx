@@ -5,7 +5,7 @@ export default function CardSkeleton() {
     <>
       {CardSkeletonData.map((res) => {
         return (
-          <div className="animate-pulse bg-slate-300 p-5 rounded-md transition-all">
+          <div className="animate-pulse bg-slate-300 p-5 rounded-md transition-all" key={res.id}>
             <div className="flex gap-3 items-center">
               <div className="animate-pulse bg-slate-100 w-[40px] h-[40px] rounded-full "></div>
               <div>

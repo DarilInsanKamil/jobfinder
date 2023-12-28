@@ -21,3 +21,11 @@ export function formatCurrencyIDR(amount: number): string {
 
   return formattedAmount;
 }
+
+
+export const ScrollTop = () => {
+  scrollTo({
+    behavior: "smooth",
+    top: 0,
+  });
+};
