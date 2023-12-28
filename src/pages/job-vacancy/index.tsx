@@ -19,6 +19,7 @@ const JobVacancy = () => {
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <title>Job Vacancy | JobFinders</title>
         <meta name="robots" content="all" />
+        <meta name="google-site-verification" content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ" />
       </Head>
       <RootLayout>
         <main className="grid xl:grid-cols-12 lg:grid-cols-12 grid-cols-6 lg:p-10 xl:p-10 p-5">

@@ -12,6 +12,7 @@ const SubmitJobPage = () => {
         />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <title>Upload Job | JobFinders</title>
+        <meta name="google-site-verification" content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ" />
       </Head>
       <DashboardLayout>
         <section className="text-center mb-10 font-semibold text-[20px]">

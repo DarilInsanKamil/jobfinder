@@ -11,6 +11,7 @@ const DetailPage = () => {
   return (
     <>
       <Head>
+      <meta name="google-site-verification" content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ" />
         <meta
           name="description"
           content={`Join ${data?.company_name} in ${data?.company_city} for a ${

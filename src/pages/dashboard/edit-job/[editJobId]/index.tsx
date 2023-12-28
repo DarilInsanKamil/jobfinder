@@ -9,6 +9,7 @@ const EditJobPage = () => {
   return (
     <>
       <Head>
+      <meta name="google-site-verification" content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ" />
         <meta
           name="description"
           content="Effortlessly manage and refine job listings with our intuitive job editing dashboard. Streamline your hiring process, update details, and optimize postings swiftly. Elevate your recruitment experience seamlessly."

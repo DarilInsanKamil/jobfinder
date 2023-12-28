@@ -18,6 +18,7 @@ const DashboardProfile = () => {
         />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <title>Profile | JobFinders</title>
+        <meta name="google-site-verification" content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ" />
       </Head>
       <DashboardLayout>
         <section className="flex lg:flex-row flex-col xl:flex-row xl:justify-between lg:justify-between  xl:items-center lg:items-center gap-10">

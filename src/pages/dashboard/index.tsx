@@ -15,6 +15,7 @@ const Dashboard = () => {
         />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <title>Dashboard | JobFinders</title>
+        <meta name="google-site-verification" content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ" />
       </Head>
       <DashboardLayout>
         <DashboardTable />

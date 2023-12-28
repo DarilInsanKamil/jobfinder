@@ -9,6 +9,7 @@ const RegisterPage = () => {
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <title>Register | JobFinders</title>
         <meta name="robots" content="all" />
+        <meta name="google-site-verification" content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ" />
       </Head>
       <main className="grid grid-cols-12 h-screen">
         <section className="col-start-1 col-span-7 bg-slate-300"></section>
