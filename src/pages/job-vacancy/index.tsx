@@ -14,6 +14,7 @@ const JobVacancy = () => {
         <meta name="description" content="Explore exciting career opportunities at JobFinders. Browse our latest job vacancies across various departments and apply to join a dynamic team dedicated to innovation and growth. Find your next career move with us today!" />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <title>Job Vacancy | JobFinders</title>
+        <meta name="robots" content="all" />
       </Head>
       <RootLayout>
         <main className="grid xl:grid-cols-12 lg:grid-cols-12 grid-cols-6 lg:p-10 xl:p-10 p-5">

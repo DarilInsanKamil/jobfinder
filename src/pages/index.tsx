@@ -14,6 +14,7 @@ function Home() {
           content="Discover your dream job with ease. Our comprehensive job finder platform connects you to a myriad of career opportunities across industries. Streamline your job search, explore diverse roles, and take the next step towards your professional aspirations."
         />
         <title>JobFinders</title>
+        <meta name="robots" content="all" />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
       </Head>
       <RootLayout>

@@ -25,6 +25,7 @@ const DetailPage = () => {
             data?.job_description
           } and qualification of ${data?.job_qualification}.`}
         />
+        <meta name="robots" content="all" />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
         <title>Detail Jobs | {data?.title}</title>
       </Head>
