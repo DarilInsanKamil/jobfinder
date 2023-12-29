@@ -18,7 +18,7 @@ import { useRouter } from "next/router";
 
 type ValidationSchema = z.infer<typeof validationSchema>;
 const FormEdit = ({ res }: { res: any }) => {
-    const router = useRouter()
+  const router = useRouter();
   const { toast } = useToast();
 
   const {
@@ -38,12 +38,11 @@ const FormEdit = ({ res }: { res: any }) => {
           title: "Success edit data",
         });
         // reset();
-        router.push("/dashboard")
       },
     },
     res ? res.id : res?.id
   );
-  const onSubmit: SubmitHandler<EditUploadJob> = (data: EditUploadJob) => {
+  const onSubmit = (data: any) => {
     mutate(data);
     console.log(data);
   };
