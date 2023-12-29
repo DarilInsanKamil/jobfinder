@@ -1,11 +1,4 @@
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,6 +8,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
 import { EditUploadJob, ResponseJob, UploadJob } from "@/lib/definitions";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 type ValidationSchema = z.infer<typeof validationSchema>;
 const FormEdit = ({ res }: { res: any }) => {
@@ -31,6 +25,10 @@ const FormEdit = ({ res }: { res: any }) => {
     defaultValues: res ? res : undefined,
   });
 
+  useEffect(() => {
+    reset(res); // Reset nilai form jika res berubah
+  }, [res, reset]);
+
   const { mutate, isPending } = useEditJobs(
     {
       onSuccess: () => {
@@ -44,7 +42,7 @@ const FormEdit = ({ res }: { res: any }) => {
   );
   const onSubmit = (data: any) => {
     mutate(data);
-    console.log(data);
+    // console.log(data);
   };
 
   return (
@@ -54,7 +52,7 @@ const FormEdit = ({ res }: { res: any }) => {
           <label>Job title</label>
           <input
             type="text"
-            defaultValue={res ? res.title : undefined}
+            defaultValue={res ? res.title : res?.id}
             {...register("title")}
             placeholder="Jabatan Pekerjaan"
             className="border-neutral-200 outline-blue-200 border p-2 w-full rounded-md mt-1"
@@ -65,7 +63,7 @@ const FormEdit = ({ res }: { res: any }) => {
           <label>Company name</label>
           <input
             type="text"
-            defaultValue={res ? res.company_name : undefined}
+            defaultValue={res ? res.company_name : res?.id}
             {...register("company_name")}
             placeholder="Nama perusahaan"
             className="border-neutral-200 outline-blue-200 border p-2 w-full rounded-md mt-1"
@@ -86,7 +84,7 @@ const FormEdit = ({ res }: { res: any }) => {
           <label>Company Image</label>
           <input
             type="text"
-            defaultValue={res ? res.company_image_url : undefined}
+            defaultValue={res ? res.company_image_url : res?.id}
             placeholder="Image url perusahaan"
             {...register("company_image_url")}
             className="border-neutral-200 outline-blue-200 border p-2 w-full rounded-md mt-1"
@@ -97,7 +95,7 @@ const FormEdit = ({ res }: { res: any }) => {
           <label>Company location</label>
           <input
             type="text"
-            defaultValue={res ? res.company_city : undefined}
+            defaultValue={res ? res.company_city : res?.id}
             {...register("company_city")}
             placeholder="Lokasi perushaan"
             className="border-neutral-200 outline-blue-200 border p-2 w-full rounded-md mt-1"
@@ -111,7 +109,7 @@ const FormEdit = ({ res }: { res: any }) => {
           <label>Salary minimal</label>
           <input
             type="number"
-            defaultValue={res ? res.salary_min : undefined}
+            defaultValue={res ? res.salary_min : res?.id}
             {...register("salary_min")}
             placeholder="Gaji minimal"
             min={1000000}
@@ -123,7 +121,7 @@ const FormEdit = ({ res }: { res: any }) => {
           <label>Salary maksimal</label>
           <input
             type="number"
-            defaultValue={res ? res.salary_max : undefined}
+            defaultValue={res ? res.salary_max : res?.id}
             {...register("salary_max")}
             placeholder="Gaji maksimal"
             max={1000000000}
@@ -140,18 +138,9 @@ const FormEdit = ({ res }: { res: any }) => {
             {...register("job_tenure")}
             type="text"
             name="job_tenure"
-            defaultValue={res ? res.job_tenure : undefined}
+            defaultValue={res ? res.job_tenure : res?.id}
             className="border-neutral-200 outline-blue-200 border p-2 w-full rounded-md mt-1"
           />
-          {/* <Select>
-            <SelectTrigger className="mt-2">
-              <SelectValue placeholder="Select a timezone" {...register("job_tenure", { required: true })} />
-            </SelectTrigger>
-            <SelectContent >
-              <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
-              <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
-            </SelectContent>
-          </Select> */}
           {errors.job_tenure?.message}
         </div>
         <div className="w-full">
@@ -160,17 +149,9 @@ const FormEdit = ({ res }: { res: any }) => {
             {...register("job_type")}
             type="text"
             name="job_type"
-            defaultValue={res ? res.job_type : undefined}
+            defaultValue={res ? res.job_type : res?.id}
             className="border-neutral-200 outline-blue-200 border p-2 w-full rounded-md mt-1"
           />
-          {/* <Select >
-            <SelectTrigger className="mt-2">
-              <SelectValue placeholder="Select a timezone" {...register("job_type", { required: true })}/>
-            </SelectTrigger>
-            <SelectContent >
-              <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
-            </SelectContent>
-          </Select> */}
           {errors.job_type?.message}
         </div>
       </div>
@@ -184,7 +165,7 @@ const FormEdit = ({ res }: { res: any }) => {
             placeholder="Deskripsi pekerjaan"
             // cols={40}
             rows={4}
-            defaultValue={res ? res.job_description : undefined}
+            defaultValue={res ? res.job_description : res?.id}
           ></textarea>
           {errors.job_description?.message}
         </div>
@@ -195,7 +176,7 @@ const FormEdit = ({ res }: { res: any }) => {
             placeholder="Deskripsi pekerjaan"
             // cols={40}
             rows={4}
-            defaultValue={res ? res.job_qualification : undefined}
+            defaultValue={res ? res.job_qualification : res?.id}
             className="border border-neutral-200 rounded-md px-3 py-2 w-full"
           ></textarea>
           {errors.job_qualification?.message}
