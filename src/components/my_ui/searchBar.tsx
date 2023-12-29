@@ -1,7 +1,7 @@
 import { Search } from "lucide-react";
 import { Button } from "../ui/button";
-
 const SearchBar = () => {
+
   return (
     <form className="flex gap-2 items-center">
       <div className="relative w-full">

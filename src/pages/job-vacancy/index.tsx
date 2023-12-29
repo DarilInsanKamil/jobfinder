@@ -47,6 +47,7 @@ const JobVacancy = () => {
           name="google-site-verification"
           content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ"
         />
+        <meta name="keywords" content="Discover your dream job with job finders" />
       </Head>
       <RootLayout>
         <main className="grid xl:grid-cols-12 lg:grid-cols-12 grid-cols-6 lg:p-10 xl:p-10 p-5 transition-all">

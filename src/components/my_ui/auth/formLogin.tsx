@@ -59,7 +59,7 @@ const FormLogin = () => {
   };
 
   return (
-    <section className="lg:col-start-8 xl:col-start-8 col-start-1 lg:col-span-5 xl:col-span-5 col-span-6 flex justify-center flex-col lg:px-20 xl:px-20 px-5 lg:py-0 xl:py-0 py-10 h-screen">
+    <section className="flex justify-center flex-col lg:px-20 xl:px-20 px-5 lg:py-0 xl:py-0 py-10 h-screen">
       <div className="flex flex-col justify-center w-full items-center mb-5">
         <Image
           src="./vercel.svg"

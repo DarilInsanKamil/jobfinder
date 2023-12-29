@@ -18,6 +18,7 @@ function Home() {
           name="google-site-verification"
           content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ"
         />
+        <meta name="keywords" content="Discover your dream job with job finders" />
         <meta name="robots" content="all" />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
       </Head>
