@@ -9,11 +9,14 @@ import CardSkeleton from "@/components/my_ui/skeleton/cardSkeleteon";
 import { Button } from "@/components/ui/button";
 import { ScrollTop } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import Cookies from "js-cookie";
 
 const JobVacancy = () => {
   const [queryPage, setQueryPage] = useState<number>(1);
   const [isRefetching, setIsRefetching] = useState<boolean>(false);
-
+  const searhParams = useSearchParams();
+  const params = searhParams?.get("search");
   const { data, isLoading, refetch: refetchPage } = useFetchJobs(queryPage);
 
   const handleNextPagination = async () => {
@@ -44,10 +47,9 @@ const JobVacancy = () => {
         <title>Job Vacancy | JobFinders</title>
         <meta name="robots" content="all" />
         <meta
-          name="google-site-verification"
-          content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ"
+          name="keywords"
+          content="Discover your dream job with job finders"
         />
-        <meta name="keywords" content="Discover your dream job with job finders" />
       </Head>
       <RootLayout>
         <main className="grid xl:grid-cols-12 lg:grid-cols-12 grid-cols-6 lg:p-10 xl:p-10 p-5 transition-all">

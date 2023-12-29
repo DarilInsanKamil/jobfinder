@@ -1,9 +1,9 @@
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { schemaDataJobs } from "../schema";
 
-export const useFetchJobs = (queryPage: number) => {
+export const useFetchJobs = (queryPage?: number) => {
   return useQuery({
-    queryKey: ["fetch.jobs"],
+    queryKey: ["fetch.jobs", queryPage],
     queryFn: async () => {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/job-vacancy?page=${queryPage}`);
       const data = await response.json();
