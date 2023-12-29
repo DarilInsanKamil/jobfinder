@@ -14,7 +14,7 @@ const ChangePasswordPage = () => {
       </Head>
       <DashboardLayout>
         <section>
-          <p>hello </p>
+          <p>Hello</p>
         </section>
       </DashboardLayout>
     </>

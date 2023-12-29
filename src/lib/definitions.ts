@@ -82,3 +82,31 @@ export type CardData = {
   job_type: string;
   company_city: string
 };
+
+export type UploadJob = {
+  title: string,
+  job_description: string,
+  job_qualification: string,
+  job_type: string,
+  job_tenure: string,
+  job_status: number,
+  company_city: string,
+  company_name: string,
+  company_image_url: string,
+  salary_min: string,
+  salary_max: string,
+}
+export type EditUploadJob = {
+  id: number,
+  title: string,
+  job_description: string,
+  job_qualification: string,
+  job_type: string,
+  job_tenure: string,
+  job_status: number,
+  company_city: string,
+  company_name: string,
+  company_image_url: string,
+  salary_min: string,
+  salary_max: string,
+}

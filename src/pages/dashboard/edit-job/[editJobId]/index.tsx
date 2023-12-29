@@ -1,15 +1,19 @@
-import FormSubmitJob from "@/components/my_ui/dashboard/formSubmitJob";
 import { useRouter } from "next/router";
 import DashboardLayout from "../../layout";
 import Head from "next/head";
+import { useFetchJobsById } from "@/lib/features/useFetchJobs";
+import FormEdit from "@/components/my_ui/dashboard/formEdit";
+import { useEffect, useState } from "react";
 
 const EditJobPage = () => {
   const router = useRouter();
   const id = router.query.editJobId;
+
+  const { data } = useFetchJobsById(id?.toString());
+
   return (
     <>
       <Head>
-      <meta name="google-site-verification" content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ" />
         <meta
           name="description"
           content="Effortlessly manage and refine job listings with our intuitive job editing dashboard. Streamline your hiring process, update details, and optimize postings swiftly. Elevate your recruitment experience seamlessly."
@@ -22,7 +26,7 @@ const EditJobPage = () => {
           <h3>Edit Job</h3>
           <p>{id}</p>
         </section>
-        <FormSubmitJob />
+        <FormEdit res={data} />
       </DashboardLayout>
     </>
   );

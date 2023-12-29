@@ -32,4 +32,32 @@ export const useCreateJobs = ({ onSuccess }: any) => {
   });
 };
 
+export const useEditJobs = ({ onSuccess }: any, id: number) => {
+  const token = Cookies.get("token")
+  return useMutation({
+    mutationFn: async (data: any) => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/job-vacancy/${id}`, {
+          method: 'PUT',
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify(data)
+        })
+        if (res.ok) {
+          console.log('berhasil mengubah data')
+        }
+
+      } catch (err) {
+        console.error('Error in server: ', err);
+        throw new Error('Failed Submit data: ')
+      }
+      // const datas = await response.json()
+      // return datas
+    },
+    onSuccess,
+  });
+};
+
 

@@ -17,8 +17,8 @@ const SearchResult = () => {
         <h3 className="font-semibold text-[24px]">
           Search Result: <span className="font-normal text-base">{params}</span>
         </h3>
-      </div>
-      <div className="col-start-1  xl:col-span-12 lg:col-span-12 col-span-6 grid xl:grid-cols-3 lg:xl:grid-cols-3 grid-cols-1 gap-5">
+      </div> 
+      <div className="col-start-1 xl:col-span-12 lg:col-span-12 col-span-12 grid xl:grid-cols-3 lg:xl:grid-cols-3 grid-cols-1 gap-5 ">
         {result?.map((res: any) => (
           <Card {...res} key={res.id} />
         ))}
