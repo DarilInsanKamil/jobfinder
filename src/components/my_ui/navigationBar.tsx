@@ -1,14 +1,12 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
-import Cookies from "js-cookie";
 import { useGetProfile } from "@/lib/features/useGetProfile";
 import DropdowMenu from "./profileDropdown";
 import Image from "next/image";
-import { SheetDemo } from "./sidebar";
-import { Suspense } from "react";
 import { NavigationContent } from "@/lib/placehodler";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import NavigationDropDown from "./navigationDropwon";
 
 const NavigationBar = () => {
   const { data: userProfile, isLoading, refetch } = useGetProfile();
@@ -34,13 +32,7 @@ const NavigationBar = () => {
           ))}
         </ul>
       </nav>
-      {userProfile ? (
-        <DropdowMenu />
-      ) : (
-        <Button variant={"default"} asChild>
-          <Link href="/login">Login</Link>
-        </Button>
-      )}
+      {userProfile ? <DropdowMenu /> : <NavigationDropDown />}
     </header>
   );
 };
