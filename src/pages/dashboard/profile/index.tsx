@@ -37,7 +37,7 @@ const DashboardProfile = () => {
             </div>
           </div>
           <Button variant={"destructive"} asChild>
-            <Link href={"/dashboard/change-password"}>
+            <Link href={"/dashboard/profile/change-password"}>
               <Settings className="w-5 h-5 mr-2" />
               Change Password
             </Link>
