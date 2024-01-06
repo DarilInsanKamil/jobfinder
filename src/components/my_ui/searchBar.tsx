@@ -22,7 +22,7 @@ const SearchBar = () => {
         />
         <Search className="w-4 h-4 absolute end-0 right-4 top-3 text-neutral-400" />
       </div>
-      <Button variant="default" className="py-5 bg-blue-600 hover:bg-blue-700" type="submit">
+      <Button variant="secondary" >
         Search
       </Button>
     </form>

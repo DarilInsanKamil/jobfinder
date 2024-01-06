@@ -203,7 +203,8 @@ const FormEdit = ({ res }: { res: any }) => {
 
       <Button
         type="submit"
-        className="bg-blue-500 hover:bg-blue-600 text-white aria-disabled:bg-blue-300"
+        variant="default"
+        className=" aria-disabled:bg-neutral-400 gap-1"
         disabled={isPending}
         aria-disabled={isPending}
       >

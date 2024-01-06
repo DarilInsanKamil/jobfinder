@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 const HeroSection = () => {
@@ -26,10 +27,10 @@ const HeroSection = () => {
           menemukan pekerjaan yang sesuai dengan kualifikasi dan minat Anda.
         </p>
         <Button
-          onClick={() => router.push("/jobpage")}
+          asChild
           // className="bg-slate-900 px-4 py-2 rounded-md text-white font-semibold"
         >
-          Get Started
+          <Link href="/job-vacancy">See All Job</Link>
         </Button>
       </div>
       <div className="xl:block lg:block hidden col-start-8 col-span-6">

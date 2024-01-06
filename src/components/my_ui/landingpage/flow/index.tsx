@@ -12,7 +12,7 @@ type ContentWorkflowType = {
 
 const WorkFlow = () => {
   return (
-    <section className="bg-neutral-900 text-white xl:p-10 lg:p-10 p-5 flex justify-center flex-col items-center">
+    <section className="bg-neutral-900 text-white xl:p-10 lg:p-10 p-5 flex justify-center flex-col xl:items-center lg:items-center items-start">
       <div className="mb-10 xl:text-center lg:text-center">
         <h2 className="text-4xl font-bold -tracking-[2px]">How it works</h2>
         <p className="text-neutral-400 xl:w-[500px] lg:w-[500px] mt-3 break-words">

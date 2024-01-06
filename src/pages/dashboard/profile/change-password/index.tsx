@@ -127,7 +127,8 @@ const ChangePasswordPage = () => {
           </div>
           <Button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white aria-disabled:bg-blue-300 w-full mt-10"
+            variant="default"
+            className=" aria-disabled:bg-neutral-400 gap-1 w-full mt-5"
             disabled={isPending}
             aria-disabled={isPending}
           >

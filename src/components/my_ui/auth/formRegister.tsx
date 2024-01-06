@@ -7,6 +7,7 @@ import { useAuthRegister } from "@/lib/features/useAuthRegister";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/router";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 
 const FormRegister = () => {
   const { toast } = useToast();
@@ -148,14 +149,14 @@ const FormRegister = () => {
             </button>
           </div>
         </div>
-        <button
+        <Button
           disabled={isPending}
           aria-disabled={isPending}
-          className="px-4 py-2 bg-blue-500 flex gap-2 items-center justify-center rounded-md text-white font-semibold hover:bg-blue-600 aria-disabled:bg-blue-300 mt-5"
+          className=" aria-disabled:bg-neutral-500 mt-5 gap-1"
         >
           {isPending && <Loader2 className="animate-spin w-4 h-4" />}
           Register
-        </button>
+        </Button>
         <p>
           Sudah punya akun?{" "}
           <Link href="./login" className="text-blue-500">

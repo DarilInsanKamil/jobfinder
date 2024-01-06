@@ -109,9 +109,9 @@ const DetailPage = () => {
                 </div>
                 <Button
                   variant="default"
-                  className="bg-blue-500 hover:bg-blue-600 transition-all gap-2"
+                  className="transition-all gap-2 items-center"
                 >
-                  <SendHorizonal className="w-4 h-4" /> Send
+                 Send <SendHorizonal className="w-4 h-4" /> 
                 </Button>
               </div>
 

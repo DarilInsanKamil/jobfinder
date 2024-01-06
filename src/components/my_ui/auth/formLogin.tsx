@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ToastAction } from "@/components/ui/toast";
 import { useRouter } from "next/router";
+import { Button } from "@/components/ui/button";
 
 const FormLogin = () => {
   const { toast } = useToast();
@@ -113,14 +114,14 @@ const FormLogin = () => {
             </button>
           </div>
         </div>
-        <button
+        <Button
           disabled={isPending}
           aria-disabled={isPending}
-          className="px-4 py-2 bg-blue-500 flex gap-2 items-center justify-center rounded-md text-white font-semibold hover:bg-blue-600 aria-disabled:bg-blue-300 mt-5"
+          className=" aria-disabled:bg-blue-500 mt-5 gap-1"
         >
           {isPending && <Loader2 className="animate-spin w-4 h-4" />}
           Login
-        </button>
+        </Button>
         <p>
           Belum punya akun?{" "}
           <Link href="./register" className="text-blue-500">

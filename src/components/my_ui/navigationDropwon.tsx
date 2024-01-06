@@ -19,12 +19,12 @@ const NavigationDropDown = () => {
   return (
     <div>
       <div className="hidden xl:flex lg:flex gap-2 items-center">
-        <Button variant={"outline"} asChild>
+        <Button variant={"default"} asChild>
           <Link className="w-full" href="/login">
             Login
           </Link>
         </Button>
-        <Button variant={"secondary"} asChild>
+        <Button variant={"outline"} asChild>
           <Link className="w-full" href="/register">
             Register
           </Link>
@@ -48,12 +48,12 @@ const NavigationDropDown = () => {
         <DropdownMenuContent className="w-56 mr-5 text-neutral-600 ">
           <DropdownMenuSeparator />
           <DropdownMenuItem className="gap-2">
-            <Button variant={"outline"} asChild>
+            <Button variant={"default"} asChild>
               <Link className="w-full" href="/login">
                 Login
               </Link>
             </Button>
-            <Button variant={"secondary"} asChild>
+            <Button variant={"outline"} asChild>
               <Link className="w-full" href="/register">
                 Register
               </Link>
