@@ -2,6 +2,9 @@ import { Inter } from "next/font/google";
 import RootLayout from "./layout";
 import Head from "next/head";
 import HeroSection from "@/components/my_ui/landingpage/hero-section";
+import WorkFlow from "@/components/my_ui/landingpage/flow";
+import ContactUs from "@/components/my_ui/landingpage/contact";
+import Testimoni from "@/components/my_ui/landingpage/testimoni";
 const inter = Inter({ subsets: ["latin"] });
 
 function Home() {
@@ -25,10 +28,11 @@ function Home() {
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
       </Head>
       <RootLayout>
-        <main
-          className={`${inter.className}`}
-        >
+        <main className={`${inter.className}`}>
           <HeroSection />
+          <WorkFlow />
+          <ContactUs />
+          <Testimoni />
         </main>
       </RootLayout>
     </>
