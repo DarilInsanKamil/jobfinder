@@ -22,13 +22,12 @@ const HeroSection = () => {
         <h1 className="font-bold xl:text-6xl lg:text-6xl md:text-6xl text-4xl -tracking-[3px] ">
           Find your dream job easily.
         </h1>
-        <p className="text-gray-400 my-4 font-poppins">
+        <p className="text-neutral-600 my-4 font-poppins">
           Kami memiliki tim rekruter profesional yang akan membantu Anda untuk
           menemukan pekerjaan yang sesuai dengan kualifikasi dan minat Anda.
         </p>
         <Button
           asChild
-          // className="bg-slate-900 px-4 py-2 rounded-md text-white font-semibold"
         >
           <Link href="/job-vacancy">See All Job</Link>
         </Button>

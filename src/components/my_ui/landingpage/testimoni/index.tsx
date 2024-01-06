@@ -22,6 +22,7 @@ const Testimoni = () => {
                 src="https://i.pinimg.com/564x/db/ba/dd/dbbadd7934173a89d8f0a43241f4367e.jpg"
                 width={40}
                 height={40}
+                alt={res.name}
                 className="object-cover rounded-full"
               />
               <p className="font-semibold">{res.name}</p>
