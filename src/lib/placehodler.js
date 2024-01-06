@@ -114,11 +114,7 @@ export const ContentContact = [
     },
 ]
 export const ContentTestimoni = [
-    {
-        id: 1,
-        name: "Ananda Reftina",
-        message: "Portal pencari kerja ini luar biasa! Saya sangat terkesan dengan kemudahan penggunaannya dan variasi posisi pekerjaan yang ditawarkan. Dalam waktu singkat, saya berhasil menemukan pekerjaan impian saya. Fitur pencarian yang canggih dan notifikasi pekerjaan baru sangat membantu saya tetap terupdate dengan kesempatan karier terbaru. Terima kasih telah membantu saya mencapai langkah penting dalam karier saya!",
-    },
+
     {
         id: 2,
         name: "Sharon Mina",
@@ -127,11 +123,6 @@ export const ContentTestimoni = [
     {
         id: 3,
         name: "Nur Sanaliyah",
-        message: "Portal pencari kerja ini luar biasa! Dengan fitur pencarian yang canggih, saya menemukan pekerjaan yang sesuai dengan keahlian saya dalam hitungan hari. Pengalaman yang memuaskan dan sangat direkomendasikan!",
-    },
-    {
-        id: 4,
-        name: "Nayla Azka",
         message: "Portal pencari kerja ini luar biasa! Dengan fitur pencarian yang canggih, saya menemukan pekerjaan yang sesuai dengan keahlian saya dalam hitungan hari. Pengalaman yang memuaskan dan sangat direkomendasikan!",
     },
     {
