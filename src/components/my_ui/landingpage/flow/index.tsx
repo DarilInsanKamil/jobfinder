@@ -22,7 +22,7 @@ const WorkFlow = () => {
       </div>
       <div className="flex xl:gap-60 lg:gap-60 gap-5 xl:flex-row lg:flex-row flex-col">
         {ContentWorkflow.map((res, idx: number) => (
-          <div className="border-l-2 border-neutral-200 pl-5">
+          <div className="border-l-2 border-neutral-200 pl-5" key={idx}>
             <h4 className="font-bold text-3xl">{res.id}</h4>
             <p className="font-semibold text-xl">{res.title}</p>
             <p className="text-neutral-400 mb-5">{res.desc}</p>
