@@ -22,7 +22,7 @@ export const NavigationContent = [
     {
         id: 3,
         name: "About",
-        link: "/",
+        link: "/about",
         icon: ArrowUpRight
 
     },

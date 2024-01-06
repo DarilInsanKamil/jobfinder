@@ -1,8 +1,7 @@
 import { Inter } from "next/font/google";
-import { useFetchJobs } from "../lib/features/useFetchJobs";
-import { ReactElement } from "react";
 import RootLayout from "./layout";
 import Head from "next/head";
+import HeroSection from "@/components/my_ui/landingpage/hero-section";
 const inter = Inter({ subsets: ["latin"] });
 
 function Home() {
@@ -18,15 +17,18 @@ function Home() {
           name="google-site-verification"
           content="EZISjGy1e9DpQ73BQVtxYzTNRu52tzPBDMz9IKsXVGQ"
         />
-        <meta name="keywords" content="Discover your dream job with job finders" />
+        <meta
+          name="keywords"
+          content="Discover your dream job with job finders"
+        />
         <meta name="robots" content="all" />
         <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
       </Head>
       <RootLayout>
         <main
-          className={`${inter.className} h-screen flex justify-center items-center`}
+          className={`${inter.className}`}
         >
-          <p>Hello there</p>
+          <HeroSection />
         </main>
       </RootLayout>
     </>
