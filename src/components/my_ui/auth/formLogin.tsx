@@ -117,7 +117,7 @@ const FormLogin = () => {
         <Button
           disabled={isPending}
           aria-disabled={isPending}
-          className=" aria-disabled:bg-blue-500 mt-5 gap-1"
+          className=" aria-disabled:bg-neutral-300 mt-5 gap-1"
         >
           {isPending && <Loader2 className="animate-spin w-4 h-4" />}
           Login
