@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="bg-white w-full -bottom-0 shrink-0">
       <div className="items-start justify-around p-10 w-full xl:flex lg:flex  hidden">
         <div>
-          <Image src={"./vercel.svg"} width={200} height={200} alt="img" />
+          <Image src={"/vercel.svg"} width={200} height={200} alt="img" />
           <h4 className="font-bold mt-5 text-[24px]">JobFinder</h4>
           <p className="break-words w-[300px] mt-1 text-neutral-600">
             Jl. Vila Dago Tol Blk. I No.4 no 11, Serua, Kec. Ciputat, Kota
