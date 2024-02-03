@@ -29,6 +29,7 @@ export const ScrollTop = () => {
     top: 0,
   });
 };
+
 export function hitungSelisihHari(created_at: string): string {
   const waktuDibuat: Date = new Date(created_at);
   const waktuSekarang: Date = new Date();
