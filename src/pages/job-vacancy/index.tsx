@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import { ScrollTop } from "@/lib/utils";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import Cookies from "js-cookie";
 
 const JobVacancy = () => {
   const [queryPage, setQueryPage] = useState<number>(1);

@@ -13,7 +13,7 @@ import { validationSchema } from "@/lib/schema";
 import { useCreateJobs } from "@/lib/features/useCreateJobs";
 import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
-
+import Image from "next/image";
 type ValidationSchema = z.infer<typeof validationSchema>;
 const FormSubmitJob = () => {
   const { toast } = useToast();
@@ -67,8 +67,8 @@ const FormSubmitJob = () => {
 
       <div className="flex items-end gap-5 w-full flex-col md:flex-col lg:flex-row xl:flex-row">
         <div className="w-full">
-          <img
-            src={"/vercel.svg" || watch("company_image_url")}
+          <Image
+            src={"/vercel.svg"}
             alt="image-dummy"
             width={60}
             height={60}
