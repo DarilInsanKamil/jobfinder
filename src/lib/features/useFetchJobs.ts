@@ -1,11 +1,11 @@
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
 import { schemaDataJobs } from "../schema";
 
-export const useFetchJobs = (queryPage?: number) => {
+export const useFetchJobs = (p0: number) => {
   return useQuery({
-    queryKey: ["fetch.jobs", queryPage],
+    queryKey: ["fetch.jobs"],
     queryFn: async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/job-vacancy?page=${queryPage}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/jobs`);
       const data = await response.json();
       // const parsedData = schemaDataJobs.parse(data)
       return data
@@ -20,7 +20,7 @@ export const useFetchJobsById = (id?: string): UseQueryResult<any, Error> => {
     queryKey: ["fetch.jobById", id],
     queryFn: async () => {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/job-vacancy/${id?.toString()}`
+        `${process.env.NEXT_PUBLIC_API_URL}/jobs/${id?.toString()}`
       );
       const data = await response.json();
       if (!response.ok) {

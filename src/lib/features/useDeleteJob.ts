@@ -4,7 +4,7 @@ export const useDeleteJob = ({ onSuccess }: any) => {
     const token = Cookies.get("token")
     return useMutation({
         mutationFn: async (id: number) => {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/job-vacancy/${id}`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/jobs/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

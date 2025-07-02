@@ -3,7 +3,7 @@ import { z } from "zod"
 export const schemaResponseDataJobs = z.array(
     z.union([
         z.object({
-            id: z.number(),
+            _id: z.number(),
             created_at: z.string(),
             updated_at: z.string(),
             title: z.string(),
@@ -19,7 +19,7 @@ export const schemaResponseDataJobs = z.array(
             salary_max: z.number()
         }),
         z.object({
-            id: z.number(),
+            _id: z.number(),
             created_at: z.string(),
             updated_at: z.string(),
             title: z.string(),

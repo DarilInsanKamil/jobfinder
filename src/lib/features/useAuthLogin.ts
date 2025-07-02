@@ -4,9 +4,10 @@ import { schemaDataLogin } from "../schema";
 
 export const useAuthLogin = ({ onSuccess, onError }: any) => {
   return useMutation({
+    mutationKey: ['auth-login'],
     mutationFn: async (data: DataLogin) => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -18,7 +19,7 @@ export const useAuthLogin = ({ onSuccess, onError }: any) => {
         });
         if (res.status !== 400) {
           const datas = await res.json();
-          const parsedData = schemaDataLogin.safeParse(datas)
+          const parsedData = datas
           return parsedData;
         }
       } catch (error) {

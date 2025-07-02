@@ -36,6 +36,8 @@ const JobVacancy = () => {
       ScrollTop();
     }
   };
+
+  
   return (
     <>
       <Head>
@@ -60,7 +62,7 @@ const JobVacancy = () => {
             {isLoading && <CardSkeleton />}
             {isRefetching && <CardSkeleton />}
             {!isRefetching &&
-              data?.data.map((res: any, idx: number) => (
+              data?.map((res: any, idx: number) => (
                 <Card {...res} key={idx} />
               ))}
           </section>

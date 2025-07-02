@@ -7,10 +7,9 @@ const SearchResult = () => {
   const pagination = Cookies.get("pagination")
   const params = router.query.params?.toString();
   const { data, isLoading } = useFetchJobs(pagination != undefined ? parseInt(pagination) : 1);
-  const result = data?.data.filter((word: any) =>
+  const result = data?.filter((word: any) =>
     word.title.toLowerCase().includes(params?.toLocaleLowerCase())
   );
-  console.log(pagination)
   return (
     <main className="xl:p-10 lg:p-10 p-5 grid xl:grid-cols-12 lg:grid-cols-12 grid-cols-6 gap-5">
       <div className="col-start-1 col-span-12">

@@ -72,7 +72,7 @@ export default function DashboardTable() {
           {isLoading && <TableRowSkeleton />}
           {isRefetching && <TableRowSkeleton />}
           {!isRefetching &&
-            data?.data.map((value: any, idx: number) => {
+            data?.map((value: any, idx: number) => {
               return (
                 <TableRow key={value.id}>
                   <TableCell className="font-medium">{idx + 1}</TableCell>

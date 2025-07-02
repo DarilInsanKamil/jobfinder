@@ -41,7 +41,7 @@ export interface RootResponseJob {
 }
 
 export type ResponseJob = {
-  id: number
+  _id: number
   created_at: string
   updated_at: string
   title: string
@@ -72,7 +72,7 @@ export interface CreateJob {
 }
 
 export type CardData = {
-  id: number | string;
+  _id: number | string;
   title: string;
   salary_min: number;
   salary_max: number;

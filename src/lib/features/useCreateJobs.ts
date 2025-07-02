@@ -5,7 +5,7 @@ export const useCreateJobs = ({ onSuccess }: any) => {
   const token = Cookies.get("token")
   return useMutation({
     mutationFn: async (data: any) => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/job-vacancy`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/jobs`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",

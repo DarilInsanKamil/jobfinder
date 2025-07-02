@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const Card = ({
   title,
-  id,
+  _id,
   salary_min,
   salary_max,
   company_image_url,
@@ -17,6 +17,9 @@ const Card = ({
   company_name,
   company_city,
 }: CardData) => {
+
+
+  
   return (
     <div className="border border-neutral-300 rounded-md p-3 hover:bg-neutral-50 transition-all">
       <div className="flex gap-2 items-center">
@@ -53,7 +56,7 @@ const Card = ({
           <Badge variant="secondary">{job_tenure}</Badge>
         </div>
         <Button variant="outline" size="sm" className="font-normal text-xs" asChild>
-          <Link href={`/detail/${id}`}>See Detail</Link>
+          <Link href={`/detail/${_id}`}>See Detail</Link>
         </Button>
       </div>
     </div>

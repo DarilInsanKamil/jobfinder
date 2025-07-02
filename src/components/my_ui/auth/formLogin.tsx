@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 const FormLogin = () => {
   const { toast } = useToast();
   const router = useRouter();
+
   const [inputData, setInputData] = useState<DataLogin>({
     email: "",
     password: "",
@@ -32,15 +33,21 @@ const FormLogin = () => {
           variant: "default",
           title: "Login Success",
         });
-        const user = data?.data.user;
-        Cookies.set("token", data?.data.token, { secure: true, expires: 1 });
+        const user = data.user;
+        const token = data.token;
+        Cookies.set("token", token, { secure: false, expires: 1 });
+
         Cookies.set("user", JSON.stringify(user), {
-          secure: true,
+          secure: false,
           expires: 1,
         });
+
+        setTimeout(() => {
+          router.push("/job-vacancy");
+        }, 5000);
+    
         inputData.email = "";
         inputData.password = "";
-        router.push("/job-vacancy");
       } else {
         toast({
           variant: "destructive",
@@ -68,6 +75,7 @@ const FormLogin = () => {
           height={60}
           alt="image"
           className="mb-10"
+          priority
         />
         <h2 className="text-xl font-semibold">Welocome Back</h2>
         <p className="text-neutral-400">Login into your account!</p>

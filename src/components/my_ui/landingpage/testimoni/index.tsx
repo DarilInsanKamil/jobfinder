@@ -1,5 +1,5 @@
 import { ContentTestimoni } from "@/lib/placehodler";
-
+import Image from "next/image";
 const Testimoni = () => {
   return (
     <section className="grid xl:grid-cols-12 lg:grid-cols-12 grid-cols-6 bg-neutral-900 text-white p-5 xl:p-10 lg:p-10">
@@ -18,11 +18,12 @@ const Testimoni = () => {
             key={idx}
           >
             <div className="flex gap-3 items-center mb-3">
-              <img
+              <Image
                 src="https://i.pinimg.com/564x/db/ba/dd/dbbadd7934173a89d8f0a43241f4367e.jpg"
                 width={40}
                 height={40}
                 alt={res.name}
+                priority
                 className="object-cover rounded-full"
               />
               <p className="font-semibold">{res.name}</p>

@@ -9,7 +9,7 @@ export const useGetProfile = () => {
             const user = Cookies.get("user")
             if (user) {
                 try {
-                    const parsedData = schemaProfileUser.parse(JSON.parse(user));
+                    const parsedData = JSON.parse(user);
                     return parsedData;
                 } catch (error) {
                     console.error("erro while getting profile: ", error)

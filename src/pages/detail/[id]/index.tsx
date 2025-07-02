@@ -21,13 +21,13 @@ import {
 } from "lucide-react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const DetailPage = () => {
   const router = useRouter();
   const id = router.query.id?.toString();
-
+  console.log(id);
   const { data, isLoading } = useFetchJobsById(id);
-
   return (
     <>
       <Head>
@@ -55,9 +55,12 @@ const DetailPage = () => {
           <main className="relative xl:p-10 lg:p-10 p-5">
             <section>
               <div className="flex gap-2 items-center">
-                <img
+                <Image
+                  width={80}
+                  height={80}
                   src={data?.company_image_url}
                   alt={data?.title}
+                  priority
                   className="md:w-40 md:h-20 w-20 h-10 object-cover"
                 />
                 <div>

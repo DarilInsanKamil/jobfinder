@@ -4,7 +4,7 @@ import { DataRegister } from "../definitions";
 export const useAuthRegister = ({ onSuccess }: any) => {
     return useMutation({
         mutationFn: async (data: DataRegister) => {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/register`, {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/register`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
