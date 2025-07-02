@@ -10,7 +10,7 @@ export default async function handler(
   response: NextApiResponse<Data>
 ) {
   try {
-    const apiResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/job-vacancy`)
+    const apiResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/jobs`)
     if (!apiResponse.ok) {
       throw new Error('Failed to fetch data')
     }
