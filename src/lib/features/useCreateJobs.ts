@@ -37,7 +37,7 @@ export const useEditJobs = ({ onSuccess }: any, id: number) => {
   return useMutation({
     mutationFn: async (data: any) => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/job-vacancy/${id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/jobs/${id}`, {
           method: 'PUT',
           headers: {
             "Content-Type": "application/json",
@@ -53,8 +53,6 @@ export const useEditJobs = ({ onSuccess }: any, id: number) => {
         console.error('Error in server: ', err);
         throw new Error('Failed Submit data: ')
       }
-      // const datas = await response.json()
-      // return datas
     },
     onSuccess,
   });

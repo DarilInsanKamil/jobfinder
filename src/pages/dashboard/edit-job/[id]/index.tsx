@@ -7,10 +7,8 @@ import { useEffect, useState } from "react";
 
 const EditJobPage = () => {
   const router = useRouter();
-  const id = router.query.editJobId;
-
-  const { data } = useFetchJobsById(id?.toString());
-
+  const id = router.query.id?.toString();
+  const { data } = useFetchJobsById(id);
   return (
     <>
       <Head>

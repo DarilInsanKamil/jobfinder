@@ -28,6 +28,7 @@ export default function DashboardTable() {
   const [queryPage, setQueryPage] = useState<number>(1);
   const { data, isLoading, refetch: refetchJob } = useFetchJobs(queryPage);
   const [isRefetching, setIsRefetching] = useState<boolean>(false);
+
   const { mutate: deleteJobs } = useDeleteJob({
     onSuccess: () => {
       toast({
@@ -74,7 +75,7 @@ export default function DashboardTable() {
           {!isRefetching &&
             data?.map((value: any, idx: number) => {
               return (
-                <TableRow key={value.id}>
+                <TableRow key={idx}>
                   <TableCell className="font-medium">{idx + 1}</TableCell>
                   <TableCell className="font-medium flex gap-2 items-center w-[200px] ">
                     <img
@@ -96,7 +97,7 @@ export default function DashboardTable() {
                   </TableCell>
                   <TableCell className="font-medium flex gap-1">
                     <Button variant="outline" className="mr-2" asChild>
-                      <Link href={`/dashboard/edit-job/${value.id}`}>
+                      <Link href={`/dashboard/edit-job/${value._id}`}>
                         <PencilIcon className="w-4 h-4" />
                       </Link>
                     </Button>

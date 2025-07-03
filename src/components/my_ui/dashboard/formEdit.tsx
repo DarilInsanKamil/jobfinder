@@ -35,10 +35,9 @@ const FormEdit = ({ res }: { res: any }) => {
         toast({
           title: "Success edit data",
         });
-        // reset();
       },
     },
-    res ? res.id : res?.id
+    res ? res._id : res?._id
   );
   const onSubmit = (data: any) => {
     mutate(data);
